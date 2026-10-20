@@ -1,91 +1,103 @@
-// ============================================================
-// RPG PLUS — site behavior
-// ============================================================
-
+// Site behavior. The script runs after the page markup has loaded.
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---- Mobile nav toggle ---- */
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+initializeMobileNavigation();
+initializeNavigationScrollState();
+initializeScrollReveals();
+initializeLevelCounter();
+initializeFaqAccordion();
 
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+function initializeMobileNavigation() {
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Close the mobile menu whenever a link is picked
-  navLinks.querySelectorAll('a').forEach(link => {
+  links.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-/* ---- Nav background solidifies on scroll ---- */
-const nav = document.getElementById('siteNav');
-if (nav) {
-  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+function initializeNavigationScrollState() {
+  const navigation = document.getElementById('siteNav');
+  if (!navigation) return;
+
+  const updateScrollState = () => {
+    navigation.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+
+  document.addEventListener('scroll', updateScrollState, { passive: true });
+  updateScrollState();
 }
 
-/* ---- Scroll reveal for sections/cards ---- */
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
+function initializeScrollReveals() {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
   if (prefersReducedMotion) {
-    revealEls.forEach(el => el.classList.add('in-view'));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => io.observe(el));
+    elements.forEach((element) => element.classList.add('in-view'));
+    return;
   }
-}
 
-/* ---- Hero HUD: level counter tick-up ---- */
-const levelNumEl = document.getElementById('levelNum');
-if (levelNumEl) {
-  const target = 47;
-  if (prefersReducedMotion) {
-    levelNumEl.textContent = String(target);
-  } else {
-    const duration = 1200;
-    const start = performance.now();
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      const value = Math.round(eased * target) || 1;
-      levelNumEl.textContent = String(value);
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-}
-
-/* ---- FAQ accordion ---- */
-document.querySelectorAll('.faq-item__q').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const answer = item.querySelector('.faq-item__a');
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-    // Close any other open item for a cleaner single-focus accordion
-    document.querySelectorAll('.faq-item__q[aria-expanded="true"]').forEach((openBtn) => {
-      if (openBtn !== btn) {
-        openBtn.setAttribute('aria-expanded', 'false');
-        openBtn.closest('.faq-item').querySelector('.faq-item__a').style.maxHeight = null;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    answer.style.maxHeight = isOpen ? null : `${answer.scrollHeight}px`;
+  elements.forEach((element) => observer.observe(element));
+}
+
+function initializeLevelCounter() {
+  const levelNumber = document.getElementById('levelNum');
+  if (!levelNumber) return;
+
+  const targetLevel = 47;
+  if (prefersReducedMotion) {
+    levelNumber.textContent = String(targetLevel);
+    return;
+  }
+
+  const durationMs = 1200;
+  const startTime = performance.now();
+
+  function updateLevel(now) {
+    const progress = Math.min((now - startTime) / durationMs, 1);
+    const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic.
+    levelNumber.textContent = String(Math.round(easedProgress * targetLevel) || 1);
+    if (progress < 1) requestAnimationFrame(updateLevel);
+  }
+
+  requestAnimationFrame(updateLevel);
+}
+
+function initializeFaqAccordion() {
+  document.querySelectorAll('.faq-item__q').forEach((button) => {
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+      // Keep at most one answer open at a time.
+      document.querySelectorAll('.faq-item__q[aria-expanded="true"]').forEach((openButton) => {
+        if (openButton !== button) setFaqExpanded(openButton, false);
+      });
+
+      setFaqExpanded(button, !isOpen);
+    });
   });
-});
+}
+
+function setFaqExpanded(button, expanded) {
+  const answer = button.closest('.faq-item').querySelector('.faq-item__a');
+  button.setAttribute('aria-expanded', String(expanded));
+  answer.style.maxHeight = expanded ? `${answer.scrollHeight}px` : null;
+}
