@@ -1,4 +1,5 @@
-// Site behavior. The script runs after the page markup has loaded.
+// Site behavior. Loaded with defer so all page markup is available.
+document.documentElement.classList.add('js');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 initializeMobileNavigation();
@@ -15,6 +16,14 @@ function initializeMobileNavigation() {
   toggle.addEventListener('click', () => {
     const isOpen = links.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && links.classList.contains('is-open')) {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
   });
 
   links.querySelectorAll('a').forEach((link) => {
@@ -46,6 +55,9 @@ function initializeScrollReveals() {
     return;
   }
 
+  if (!('IntersectionObserver' in window)) return;
+
+  document.documentElement.classList.add('has-reveals');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -82,6 +94,12 @@ function initializeLevelCounter() {
 }
 
 function initializeFaqAccordion() {
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.faq-item__q[aria-expanded="true"]').forEach((button) => {
+      setFaqExpanded(button, true);
+    });
+  });
+
   document.querySelectorAll('.faq-item__q').forEach((button) => {
     button.addEventListener('click', () => {
       const isOpen = button.getAttribute('aria-expanded') === 'true';

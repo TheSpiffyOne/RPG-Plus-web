@@ -1,396 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RPG Plus — The Reimagined Minecraft Experience</title>
-<meta name="description" content="RPG Plus is a 156+ mod Minecraft modpack with character leveling, dungeons, bosses, and Distant Horizons visuals.">
-
-<!-- Google Fonts: Cinzel for fantasy display, Manrope for body, JetBrains Mono for HUD/stat readouts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101616">
+  <title>RPG Plus — Your Next Chapter Starts Here</title>
+  <meta name="description" content="A reimagined Minecraft experience. Explore a bigger world, earn powerful skills, and conquer dungeons with RPG Plus, a 170+ mod RPG modpack for Fabric.">
+  <link rel="icon" type="image/png" href="Logo%20V3%20trans.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/ruined-valley.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============================================================
-     TOP NAV / PAGE SELECTOR
-     To add a new page later: duplicate a <li> below and point
-     its href at the new .html file (e.g. "changelog.html").
-     Anchor links (#features etc.) only work on this page.
-     ============================================================ -->
-<header class="nav" id="siteNav">
-  <div class="nav__inner">
-    <a href="#home" class="nav__brand">
-      <span class="nav__emblem" aria-hidden="true">
-        <!-- Placeholder emblem — swap for the real RPG Plus logo image when available -->
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 4L42 13V25C42 34.6 34.6 42.4 24 45C13.4 42.4 6 34.6 6 25V13L24 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M24 13V34M16 19L32 29M32 19L16 29" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="nav__title">RPG&nbsp;PLUS</span>
-    </a>
+  <!-- Shared icons keep component markup small. All instances are decorative. -->
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></symbol>
+    <symbol id="icon-rune" viewBox="0 0 24 24"><path d="m12 2 2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2L12 2Z"/><path d="M12 7v10M7 12h10"/></symbol>
+    <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10L3 7m9 5 9-5m-9 5v10"/></symbol>
+    <symbol id="icon-mountain" viewBox="0 0 24 24"><path d="m2 20 8-16 5 9 3-6 5 13M7 10l3 3 3-3"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 5c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1Zm0 0v15"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20v-5h3v5m4 0V9h3v11m4 0V3h3v17M2 21h21"/></symbol>
+    <symbol id="icon-swords" viewBox="0 0 24 24"><path d="m4 3 17 17m-1-17L3 20M4 3l5 1-4 4-1-5Zm16 0-5 1 4 4 1-5ZM2 15l6 6m8 0 6-6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v7c0 5-6 8-9 9-3-1-9-4-9-9V6l9-4Zm-4 10 3 3 5-6"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 3C6 1 1 9 6 16c7 7 15 1 14-13ZM4 21 16 8m-8 9v-7m1 6h7"/></symbol>
+    <symbol id="icon-map" viewBox="0 0 24 24"><path d="m2 5 7-3 6 3 7-3v17l-7 3-6-3-7 3V5Zm7-3v17m6-14v17"/></symbol>
+    <symbol id="icon-fire" viewBox="0 0 24 24"><path d="M13 2c2 7-5 7-2 12 2 0 4-3 4-5 7 7 5 13-3 13S1 14 7 8c-1 5 1 6 2 6-2-6 4-7 4-12Z"/></symbol>
+    <symbol id="icon-pickaxe" viewBox="0 0 24 24"><path d="m4 21 12-13M7 3c7-2 12 2 14 9l-5-4-4-4-5-1Zm5 1-3 3m7 1 3-3"/></symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M8 5 5 6C3 9 2 13 2 17l5 2 1-2m8-12 3 1c2 3 3 7 3 11l-5 2-1-2M8 6h8M7 16c3 2 7 2 10 0"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></symbol>
+  </svg>
 
-    <nav class="nav__links" id="navLinks" aria-label="Primary">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#experience">The Experience</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <!-- ADD NEW PAGES HERE, e.g.:
-        <li><a href="changelog.html">Changelog</a></li>
-        -->
-        <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord</a></li>
+  <!-- Primary navigation -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner container">
+      <a href="#home" class="nav__brand" aria-label="RPG Plus home">
+        <img class="nav__emblem" src="Logo%20V3%20trans.png" width="44" height="51" alt="">
+        <span class="nav__title">RPG <span>PLUS</span></span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#experience">The Journey</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord <svg class="icon nav__external" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--stone nav__cta" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg> Download
+      </a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Scenery is decorative; the actual page remains selectable, accessible HTML. -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero__scenery" aria-hidden="true"></div>
+      <div class="hero__inner container">
+        <div class="hero__copy">
+          <p class="hero__edition"><span class="status-dot" aria-hidden="true"></span> Minecraft 1.20.1 <span class="hero__edition-divider">/</span> Fabric</p>
+          <p class="eyebrow hero__eyebrow">The reimagined Minecraft experience</p>
+          <h1 id="heroTitle">Your next<br>chapter<br>starts here<span class="hero__period">.</span></h1>
+          <div class="rune-divider" aria-hidden="true"><span></span><svg class="icon"><use href="#icon-rune"/></svg><span></span></div>
+          <p class="hero__desc">Explore a bigger world. Earn powerful skills.<br class="desktop-break"> Conquer dungeons and forge your own legend.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
+              <svg class="icon btn__rune" aria-hidden="true"><use href="#icon-rune"/></svg>
+              Begin your adventure
+              <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg> Join Discord
+            </a>
+          </div>
+          <p class="hero__follow">Your world. Your build. Your story.</p>
+        </div>
+
+        <aside class="save-file" aria-labelledby="saveTitle">
+          <img class="save-file__crest" src="Logo%20V3%20trans.png" width="166" height="193" alt="RPG Plus stone shield with climbing vines">
+          <div class="save-file__frame">
+            <div class="save-file__inner">
+              <div class="save-file__heading">
+                <p class="eyebrow">Save file <span>01</span></p>
+                <h2 id="saveTitle">The Adventurer</h2>
+              </div>
+              <div class="save-file__level" aria-label="Level 47">
+                <span>Lv.</span><span id="levelNum" aria-hidden="true">47</span>
+              </div>
+              <div class="xp-track" aria-hidden="true"><span style="--fill:71%"></span></div>
+              <p class="save-file__xp"><span>EXP</span><span>to Lv. 48</span></p>
+              <dl class="save-file__stats">
+                <div class="save-file__stat">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-cube"/></svg>
+                  <div><dt>Mods loaded</dt><dd>170+ <span class="save-file__check" aria-label="loaded">✓</span></dd></div>
+                </div>
+                <div class="save-file__stat">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-mountain"/></svg>
+                  <div><dt>World render</dt><dd>Distant Horizons</dd></div>
+                </div>
+                <div class="save-file__stat">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg>
+                  <div><dt>Skill points</dt><dd>12 <span class="save-file__unspent">unspent</span></dd></div>
+                </div>
+              </dl>
+              <p class="save-file__status"><span class="status-dot" aria-hidden="true"></span> Ready to explore</p>
+              <p class="save-file__caption">Character preview</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <a class="hero__scroll" href="#features"><span>Discover your next chapter</span><span aria-hidden="true">↓</span></a>
+    </section>
+
+    <!-- Quiet stone strip anchors the atmospheric hero to the rest of the page. -->
+    <div class="stats-strip">
+      <ul class="stats-strip__inner container" aria-label="Modpack highlights">
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-cube"/></svg><span><strong>170+</strong> mods, one world</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-chart"/></svg><span>Character progression</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-swords"/></svg><span>Dungeons &amp; bosses</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-mountain"/></svg><span>Distant Horizons</span></li>
       </ul>
-    </nav>
-
-    <a class="btn btn--primary nav__cta" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">Get Modpack</a>
-
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main>
-
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <section class="hero" id="home">
-    <div class="hero__horizon" aria-hidden="true">
-      <svg class="horizon-layer horizon-layer--far" viewBox="0 0 1600 320" preserveAspectRatio="none"><path d="M0 320V180L200 120L420 200L650 90L900 190L1150 110L1400 200L1600 140V320Z"/></svg>
-      <svg class="horizon-layer horizon-layer--near" viewBox="0 0 1600 260" preserveAspectRatio="none"><path d="M0 260V210L250 130L500 220L780 100L1050 210L1300 150L1600 220V260Z"/></svg>
-      <div class="embers" id="embers" aria-hidden="true"></div>
     </div>
 
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <p class="eyebrow">Minecraft Modpack · 1.20.1 Fabric · 170+ Mods</p>
-        <h1 class="hero__title">RPG&nbsp;PLUS</h1>
-        <p class="hero__tagline">The Reimagined Minecraft Experience</p>
-        <p class="hero__desc">
-          RPG Plus rebuilds vanilla Minecraft into a full RPG. Fight to survive
-          a brutal early game, earn levels and skill points, gear up, and take
-          on hand-built dungeons and bosses &mdash; across landscapes that render
-          out to the horizon, thanks to Distant Horizons 2.3 and the compatible
-          Iris shaders built into the pack.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">Download Now!</a>
-          <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Join the Discord</a>
+    <section class="features section container" id="features" aria-labelledby="featuresTitle">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow chapter-label"><span></span> The expedition archive <span></span></p>
+        <h2 id="featuresTitle">Every journey leaves a mark.</h2>
+        <p class="section-head__desc">Familiar blocks. An entirely new adventure.</p>
+        <div class="rune-divider rune-divider--center" aria-hidden="true"><span></span><svg class="icon"><use href="#icon-rune"/></svg><span></span></div>
+      </div>
+
+      <div class="chapter-grid">
+        <article class="chapter-card reveal">
+          <div class="chapter-card__art chapter-card__art--world" role="img" aria-label="Fantasy voxel castle in a sunlit mountain valley"><span class="chapter-card__number" aria-hidden="true">I</span></div>
+          <div class="chapter-card__copy">
+            <p class="eyebrow">A build of your own</p>
+            <h3>Grow your character</h3>
+            <p>Earn levels and skill points, discover new armor, and shape a build that feels like yours.</p>
+          </div>
+        </article>
+        <article class="chapter-card reveal">
+          <div class="chapter-card__art chapter-card__art--dungeon" role="img" aria-label="Ancient voxel dungeon lit by torches and blue runes"><span class="chapter-card__number" aria-hidden="true">II</span></div>
+          <div class="chapter-card__copy">
+            <p class="eyebrow">Beyond the beaten path</p>
+            <h3>Unearth forgotten places</h3>
+            <p>Explore dungeons, discover new creatures, and wander landscapes that stretch to the horizon.</p>
+          </div>
+        </article>
+        <article class="chapter-card reveal">
+          <div class="chapter-card__art chapter-card__art--boss" role="img" aria-label="Towering stone golem in a ruined voxel arena"><span class="chapter-card__number" aria-hidden="true">III</span></div>
+          <div class="chapter-card__copy">
+            <p class="eyebrow">Something worth fighting for</p>
+            <h3>Earn your victories</h3>
+            <p>Take on bosses that test your gear. Every hard-won fight is another chapter in your story.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="field-notes reveal">
+        <p class="field-notes__label"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg> Inside the pack</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg> New flora &amp; fauna</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-map"/></svg> Lore-friendly maps</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg> New armor &amp; items</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg> Optional quests</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="experience section container" id="experience" aria-labelledby="experienceTitle">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow chapter-label"><span></span> Your adventure awaits <span></span></p>
+        <h2 id="experienceTitle">From surviving to thriving.</h2>
+        <p class="section-head__desc">The early game bites back. Every level, every drop, every skill point takes you further.</p>
+      </div>
+      <ol class="journey reveal">
+        <li class="journey__step">
+          <span class="journey__medallion" aria-hidden="true"><svg class="icon"><use href="#icon-fire"/></svg></span>
+          <span class="journey__number">01</span><h3>Survive</h3>
+          <p>Gather resources and find your footing. This world makes you earn it.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__medallion" aria-hidden="true"><svg class="icon"><use href="#icon-pickaxe"/></svg></span>
+          <span class="journey__number">02</span><h3>Gear up</h3>
+          <p>Find better armor and equipment. Open the door to tougher fights.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__medallion" aria-hidden="true"><svg class="icon"><use href="#icon-chart"/></svg></span>
+          <span class="journey__number">03</span><h3>Level up</h3>
+          <p>Spend earned skill points and make your playstyle your strength.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__medallion" aria-hidden="true"><svg class="icon"><use href="#icon-swords"/></svg></span>
+          <span class="journey__number">04</span><h3>Conquer</h3>
+          <p>Brave the dungeons. Challenge their bosses. See how far you can go.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="horizons" aria-labelledby="horizonsTitle">
+      <div class="horizons__inner container reveal">
+        <div class="horizons__copy">
+          <p class="eyebrow">Look a little further</p>
+          <h2 id="horizonsTitle">A world without<br>the short view.</h2>
+          <p>Terralith and Tectonic reshape the land. Distant Horizons brings the distance into focus, with compatible Iris shaders already in the pack.</p>
+          <span class="horizons__included"><span class="status-dot" aria-hidden="true"></span> Included &amp; configured. Just explore.</span>
         </div>
-        <p class="hero__follow">Hit <strong>Follow</strong> on Modrinth for update news &mdash; it helps a ton.</p>
-      </div>
-
-      <!-- SIGNATURE ELEMENT: animated character-sheet HUD panel -->
-      <div class="hud" role="img" aria-label="Character sheet showing RPG Plus stats: 156 mods loaded, Distant Horizons enabled, level progression, and unspent skill points">
-        <div class="hud__frame">
-          <div class="hud__corner hud__corner--tl"></div>
-          <div class="hud__corner hud__corner--tr"></div>
-          <div class="hud__corner hud__corner--bl"></div>
-          <div class="hud__corner hud__corner--br"></div>
-
-          <p class="hud__eyebrow">Save File &mdash; Adventurer</p>
-          <div class="hud__level">
-            <span class="hud__level-label">Lv.</span>
-            <span class="hud__level-num" id="levelNum">1</span>
-          </div>
-
-          <div class="hud__stat">
-            <div class="hud__stat-label"><span>Mods Loaded</span><span class="hud__stat-value">156 / 156</span></div>
-            <div class="hud__bar"><div class="hud__bar-fill" data-fill="100" style="--fill:100%"></div></div>
-          </div>
-          <div class="hud__stat">
-            <div class="hud__stat-label"><span>World Render</span><span class="hud__stat-value">Distant Horizons</span></div>
-            <div class="hud__bar"><div class="hud__bar-fill" data-fill="96" style="--fill:96%"></div></div>
-          </div>
-          <div class="hud__stat">
-            <div class="hud__stat-label"><span>Skill Points</span><span class="hud__stat-value">12 unspent</span></div>
-            <div class="hud__bar"><div class="hud__bar-fill" data-fill="62" style="--fill:62%"></div></div>
-          </div>
-
-          <div class="hud__xp">
-            <div class="hud__xp-label"><span>EXP</span><span>to Lv. 48</span></div>
-            <div class="hud__bar hud__bar--xp"><div class="hud__bar-fill hud__bar-fill--xp" style="--fill:71%"></div></div>
-          </div>
+        <div class="horizons__readout" aria-label="Distant Horizons and compatible Iris shaders included">
+          <svg class="icon" aria-hidden="true"><use href="#icon-mountain"/></svg>
+          <span class="eyebrow">Render distance</span>
+          <span class="horizons__infinity" aria-hidden="true">∞</span>
+          <span class="horizons__label">Out to the horizon</span>
+          <span class="horizons__shader">Distant Horizons + Iris</span>
         </div>
       </div>
-    </div>
-  <!-- ============================================================
-       QUICK STATS STRIP
-       ============================================================ -->
-    <div class="stats-strip__inner">
-      <div class="stat-chip"><span class="stat-chip__num">170+</span><span>Mods, one pack</span></div>
-      <div class="stat-chip"><span class="stat-chip__num">3.3</span><span>Distant Horizons</span></div>
-      <div class="stat-chip"><span class="stat-chip__num">✓</span><span>Iris shaders included</span></div>
-      <div class="stat-chip"><span class="stat-chip__num">⚔</span><span>New dungeons &amp; bosses</span></div>
-      <div class="stat-chip"><span class="stat-chip__num">?</span><span>Quests, optional</span></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       QUICK STATS STRIP
-       ============================================================ -->
-
-  <!-- ============================================================
-       FEATURES
-       ============================================================ -->
-  <section class="features" id="features">
-    <div class="section-head reveal">
-      <p class="eyebrow">Features</p>
-      <h2>Everything vanilla was missing</h2>
-      <p class="section-head__desc">156 mods, chosen and tuned to work as one system &mdash; not bolted together.</p>
-    </div>
-
-    <div class="feature-grid">
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 17L9 12L13 16L20 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8H20V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Character Leveling System</h3>
-        <p>Earn levels and skill points as you fight, then spend them to shape your own build.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M2 18L8 9L12 14L15 10L22 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="6" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
-        </span>
-        <h3>Picturesque Landscapes</h3>
-        <p>Terralith and Tectonic reshape the terrain, rendered out to the horizon with Distant Horizons.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 3H16L19 6V21H6V3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9H15M9 13H15M9 17H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Quests <span class="feature-card__tag">Optional</span></h3>
-        <p>Follow guided objectives if you want direction, or ignore the log and forge your own path.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L20 8V14C20 18.4 16.4 21.8 12 22C7.6 21.8 4 18.4 4 14V8L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>New Dungeons &amp; Bosses</h3>
-        <p>Delve into hand-placed dungeons guarded by bosses built to test your gear.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 8 7 8 12C8 15 9.5 17 12 21C14.5 17 16 15 16 12C16 7 12 3 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 12V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Improved Flora &amp; Fauna</h3>
-        <p>New plants, creatures, and biome variety make every region feel distinct.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20L9 15L13 18L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Overhauled Progression</h3>
-        <p>Vanilla's flat curve is replaced with a real arc, from fragile survivor to seasoned adventurer.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 4L4 6V20L9 18L15 20L20 18V4L15 6L9 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 4V18M15 6V20" stroke="currentColor" stroke-width="1.8"/></svg>
-        </span>
-        <h3>Lore-Friendly Map System</h3>
-        <p>Track your discoveries on a map system built to match the world's tone.</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L19 6V12C19 16.5 16 20 12 21C8 20 5 16.5 5 12V6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>New Armors &amp; Items</h3>
-        <p>Gear that actually matters, with new armor sets and items worth hunting down.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       THE EXPERIENCE — progression path (real gameplay sequence)
-       ============================================================ -->
-  <section class="experience" id="experience">
-    <div class="section-head reveal">
-      <p class="eyebrow">The RPG Plus Experience</p>
-      <h2>Early game bites back</h2>
-      <p class="section-head__desc">
-        You start fragile. Every level, every drop, every skill point spent
-        pulls you further from "just surviving" toward something worth
-        telling people about.
-      </p>
-    </div>
-
-    <ol class="path reveal">
-      <li class="path__step">
-        <span class="path__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 20L12 16.5L6.5 20L8 13.5L3 9L9.5 8.5L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Survive</h3>
-        <p>No hand-holding. The early game is genuinely hard &mdash; that's the point.</p>
-      </li>
-      <li class="path__step">
-        <span class="path__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L19 6V12C19 16.5 16 20 12 21C8 20 5 16.5 5 12V6L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Gear Up</h3>
-        <p>Better armor and items open the door to fights you couldn't win before.</p>
-      </li>
-      <li class="path__step">
-        <span class="path__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 17L9 12L13 16L20 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Level Up</h3>
-        <p>Spend earned points on skills that match how you actually play.</p>
-      </li>
-      <li class="path__step">
-        <span class="path__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L20 8V14C20 18.4 16.4 21.8 12 22C7.6 21.8 4 18.4 4 14V8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Conquer Dungeons</h3>
-        <p>Take that build into hand-built dungeons and the bosses guarding them.</p>
-      </li>
-    </ol>
-  </section>
-
-  <!-- ============================================================
-       VISUALS CALLOUT
-       ============================================================ -->
-  <section class="visuals reveal">
-    <div class="visuals__inner">
-      <div class="visuals__text">
-        <p class="eyebrow">Included, not optional</p>
-        <h2>Distant Horizons 2.3 &amp; compatible Iris shaders</h2>
-        <p>
-          The pack ships with Distant Horizons already configured, so terrain
-          renders out far past normal view distance, plus Iris shaders picked
-          to work with it out of the box. Want a different shader? Any shader
-          compatible with Distant Horizons will work &mdash; you'll just need
-          to add it yourself.
-        </p>
+    <section class="faq section container" id="faq" aria-labelledby="faqTitle">
+      <div class="faq__intro reveal">
+        <p class="eyebrow">Before you set out</p>
+        <h2 id="faqTitle">A few things<br>to know.</h2>
+        <p>Need a hand on your adventure?<br>There’s a whole party on Discord.</p>
+        <a class="text-link" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Ask the community <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
       </div>
-      <div class="visuals__card">
-        <span class="visuals__card-label">Render Distance</span>
-        <span class="visuals__card-value">∞ Horizon</span>
-        <div class="hud__bar"><div class="hud__bar-fill" style="--fill:96%"></div></div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion1" type="button" aria-expanded="false" aria-controls="faqAnswer1"><span>How do I play with this modpack?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer1" role="region" aria-labelledby="faqQuestion1"><p>Install the Modrinth Launcher, then download RPG Plus from inside it.</p></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion2" type="button" aria-expanded="false" aria-controls="faqAnswer2"><span>Where can I get help with an issue?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer2" role="region" aria-labelledby="faqQuestion2"><p>Join the Discord and post in the <strong>#help-required</strong> thread.</p></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion3" type="button" aria-expanded="false" aria-controls="faqAnswer3"><span>Why is my world loading slowly?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer3" role="region" aria-labelledby="faqQuestion3"><p>There are 170+ mods to load, and Distant Horizons takes extra time on top of that. Give it a minute, especially when exploring new terrain.</p></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion4" type="button" aria-expanded="false" aria-controls="faqAnswer4"><span>Can I use a different shader?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer4" role="region" aria-labelledby="faqQuestion4"><p>Yes. Distant Horizons needs a compatible shader. The included ones already work; if you want another, find one that’s Distant Horizons-compatible and add it yourself.</p></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion5" type="button" aria-expanded="false" aria-controls="faqAnswer5"><span>What can I do about low FPS?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer5" role="region" aria-labelledby="faqQuestion5"><p>Check your Java memory limit in Modrinth first. Raise the default based on your available RAM. You can also lower the Distant Horizons and shader settings.</p></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" id="faqQuestion6" type="button" aria-expanded="false" aria-controls="faqAnswer6"><span>Are the included mods modified?</span><span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a" id="faqAnswer6" role="region" aria-labelledby="faqQuestion6"><p>Everything is pulled unmodified from official Modrinth and CurseForge sources. RPG Plus is a curated combination, not altered mod content.</p></div>
+        </div>
       </div>
+    </section>
+
+    <section class="discord-cta container reveal" aria-labelledby="communityTitle">
+      <svg class="icon discord-cta__rune" aria-hidden="true"><use href="#icon-rune"/></svg>
+      <p class="eyebrow">A new save. A new story.</p>
+      <h2 id="communityTitle">Your next chapter is waiting.</h2>
+      <p>Grab the pack, gather your party, and see what’s out there.</p>
+      <div class="discord-cta__actions">
+        <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg> Download RPG Plus <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg> Join Discord</a>
+      </div>
+      <p class="discord-cta__follow">Follow RPG Plus on Modrinth for the next update.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <a class="nav__brand" href="#home" aria-label="RPG Plus home"><img class="nav__emblem" src="Logo%20V3%20trans.png" width="44" height="51" alt="" loading="lazy"><span class="nav__title">RPG <span>PLUS</span></span></a>
+      <p class="footer__tag">The reimagined Minecraft experience.</p>
+      <ul class="footer__links">
+        <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">Modrinth ↗</a></li>
+        <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord ↗</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ============================================================
-       DISCORD CTA
-       ============================================================ -->
-  <section class="discord-cta reveal">
-    <div class="discord-cta__inner">
-      <div>
-        <p class="eyebrow">Discord Server</p>
-        <h2>Questions, bugs, or just want to hang out?</h2>
-        <p>Join the server &mdash; issues and feedback go in <strong>#help-required</strong>.</p>
-      </div>
-      <a class="btn btn--primary btn--lg" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Join the Discord</a>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FAQ
-       ============================================================ -->
-  <section class="faq" id="faq">
-    <div class="section-head reveal">
-      <p class="eyebrow">FAQ</p>
-      <h2>Before you ask in Discord</h2>
-    </div>
-
-    <div class="faq-list reveal">
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>How do I play with this modpack?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>Install the Modrinth Launcher, then download RPG Plus from inside it.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>I have an issue &mdash; where can I get help?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>Join the Discord and post in the <strong>#help-required</strong> thread.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>My world is loading slow. Why?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>There are 156+ mods to load, and Distant Horizons takes extra time on top of that. Give it a minute &mdash; it's normal.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>I want to use a different shader &mdash; how?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>Distant Horizons needs a compatible shader. The included ones already work; if you want another, find one that's Distant Horizons-compatible and add it yourself.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>Why is my FPS low?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>Check your Java memory limit in Modrinth first &mdash; the default is low, so raise it based on your available RAM. You can also lower the Distant Horizons and shader settings.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__q" aria-expanded="false">
-          <span>Are the mods official, or modified?</span>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-item__a"><p>Everything is pulled unmodified from official Modrinth and CurseForge sources &mdash; this pack is a curated combination, not altered content.</p></div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <span class="nav__emblem" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 4L42 13V25C42 34.6 34.6 42.4 24 45C13.4 42.4 6 34.6 6 25V13L24 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M24 13V34M16 19L32 29M32 19L16 29" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <div>
-        <p class="footer__title">RPG PLUS</p>
-        <p class="footer__tag">The Reimagined Minecraft Experience</p>
-      </div>
-    </div>
-
-    <ul class="footer__links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#experience">The Experience</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">Modrinth</a></li>
-      <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord</a></li>
-    </ul>
-
-    <p class="footer__disclaimer">RPG Plus is a fan-made modpack. Not affiliated with Mojang or Microsoft.</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+    <div class="footer__bottom container"><p>A fan-made adventure. Not affiliated with Mojang or Microsoft.</p><a href="#home">Back to top ↑</a></div>
+  </footer>
 </body>
 </html>
