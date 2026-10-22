@@ -6,6 +6,7 @@ initializeMobileNavigation();
 initializeNavigationScrollState();
 initializeScrollReveals();
 initializeLevelCounter();
+initializeHeroMotion();
 initializeFaqAccordion();
 
 function initializeMobileNavigation() {
@@ -118,4 +119,25 @@ function setFaqExpanded(button, expanded) {
   const answer = button.closest('.faq-item').querySelector('.faq-item__a');
   button.setAttribute('aria-expanded', String(expanded));
   answer.style.maxHeight = expanded ? `${answer.scrollHeight}px` : null;
+}
+
+// Give visitors a pause control and stop decorative motion outside the viewport.
+function initializeHeroMotion() {
+  const hero = document.getElementById('home');
+  const toggle = document.getElementById('heroMotionToggle');
+  if (!hero || !toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const paused = hero.classList.toggle('is-motion-paused');
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? 'Resume hero animation' : 'Pause hero animation');
+    toggle.querySelector('span').textContent = paused ? 'Resume motion' : 'Pause motion';
+    toggle.querySelector('use').setAttribute('href', paused ? '#icon-play' : '#icon-pause');
+  });
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(([entry]) => {
+    hero.classList.toggle('is-out-of-view', !entry.isIntersecting);
+  });
+  observer.observe(hero);
 }

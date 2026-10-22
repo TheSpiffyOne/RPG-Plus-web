@@ -20,7 +20,9 @@
   <!-- Shared icons keep component markup small. All instances are decorative. -->
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
-    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8V4Z"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.5 5.5a5 5 0 0 0-7 0L12 7l-1.5-1.5a5 5 0 0 0-7 7L12 21l8.5-8.5a5 5 0 0 0 0-7Z"/></symbol>
     <symbol id="icon-rune" viewBox="0 0 24 24"><path d="m12 2 2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2L12 2Z"/><path d="M12 7v10M7 12h10"/></symbol>
     <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10L3 7m9 5 9-5m-9 5v10"/></symbol>
     <symbol id="icon-mountain" viewBox="0 0 24 24"><path d="m2 20 8-16 5 9 3-6 5 13M7 10l3 3 3-3"/></symbol>
@@ -50,8 +52,8 @@
           <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord <svg class="icon nav__external" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
         </ul>
       </nav>
-      <a class="btn btn--stone nav__cta" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
-        <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg> Download
+      <a class="btn btn--stone nav__cta" aria-label="Download RPG Plus from Modrinth" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
+        <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> <span class="nav__download-label">Download</span>
       </a>
       <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
@@ -63,6 +65,16 @@
     <!-- Scenery is decorative; the actual page remains selectable, accessible HTML. -->
     <section class="hero" id="home" aria-labelledby="heroTitle">
       <div class="hero__scenery" aria-hidden="true"></div>
+      <div class="hero__atmosphere" aria-hidden="true">
+        <span class="hero__mote" style="--x:8%; --delay:-4s; --duration:17s"></span>
+        <span class="hero__mote" style="--x:23%; --delay:-11s; --duration:21s"></span>
+        <span class="hero__mote" style="--x:39%; --delay:-2s; --duration:19s"></span>
+        <span class="hero__mote" style="--x:51%; --delay:-15s; --duration:23s"></span>
+        <span class="hero__mote" style="--x:62%; --delay:-8s; --duration:18s"></span>
+        <span class="hero__mote" style="--x:74%; --delay:-5s; --duration:22s"></span>
+        <span class="hero__mote" style="--x:86%; --delay:-13s; --duration:20s"></span>
+        <span class="hero__mote" style="--x:94%; --delay:-7s; --duration:24s"></span>
+      </div>
       <div class="hero__inner container">
         <div class="hero__copy">
           <p class="hero__edition"><span class="status-dot" aria-hidden="true"></span> Minecraft 1.20.1 <span class="hero__edition-divider">/</span> Fabric</p>
@@ -72,13 +84,18 @@
           <p class="hero__desc">Explore a bigger world. Earn powerful skills.<br class="desktop-break"> Conquer dungeons and forge your own legend.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
-              <svg class="icon btn__rune" aria-hidden="true"><use href="#icon-rune"/></svg>
+              <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt="">
               Begin your adventure
               <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
             </a>
-            <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg> Join Discord
-            </a>
+            <div class="hero__community">
+              <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg> Join Discord
+              </a>
+              <a class="btn btn--ghost btn--icon" href="https://github.com/TheSpiffyOne/RPG-Plus" target="_blank" rel="noopener" aria-label="RPG Plus on GitHub" title="RPG Plus on GitHub">
+                <img class="brand-icon brand-icon--github" src="assets/github.svg" width="22" height="22" alt="">
+              </a>
+            </div>
           </div>
           <p class="hero__follow">Your world. Your build. Your story.</p>
         </div>
@@ -117,6 +134,9 @@
         </aside>
       </div>
       <a class="hero__scroll" href="#features"><span>Discover your next chapter</span><span aria-hidden="true">↓</span></a>
+      <button class="motion-toggle" id="heroMotionToggle" type="button" aria-pressed="false" aria-label="Pause hero animation">
+        <svg class="icon" aria-hidden="true"><use href="#icon-pause"/></svg><span>Pause motion</span>
+      </button>
     </section>
 
     <!-- Quiet stone strip anchors the atmospheric hero to the rest of the page. -->
@@ -264,10 +284,20 @@
       <h2 id="communityTitle">Your next chapter is waiting.</h2>
       <p>Grab the pack, gather your party, and see what’s out there.</p>
       <div class="discord-cta__actions">
-        <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg> Download RPG Plus <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> Download RPG Plus <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
         <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg> Join Discord</a>
       </div>
       <p class="discord-cta__follow">Follow RPG Plus on Modrinth for the next update.</p>
+      <div class="support">
+        <p>Enjoying the adventure? Help support RPG Plus.</p>
+        <div class="support__action">
+          <!-- Replace this disabled button with an anchor to your lava.top page when ready. -->
+          <button class="btn btn--support" id="donationButton" type="button" disabled title="Donations via lava.top coming soon" aria-describedby="donationAvailability">
+            <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg> Donate
+          </button>
+          <span class="support__availability" id="donationAvailability">Coming soon on lava.top</span>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -276,7 +306,7 @@
       <a class="nav__brand" href="#home" aria-label="RPG Plus home"><img class="nav__emblem" src="Logo%20V3%20trans.png" width="44" height="51" alt="" loading="lazy"><span class="nav__title">RPG <span>PLUS</span></span></a>
       <p class="footer__tag">The reimagined Minecraft experience.</p>
       <ul class="footer__links">
-        <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">Modrinth ↗</a></li>
+        <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> Modrinth ↗</a></li>
         <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener">Discord ↗</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
