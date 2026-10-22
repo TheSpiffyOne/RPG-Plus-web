@@ -1196,6 +1196,9 @@ button:focus-visible {
   max-height: 900px;
   overflow: hidden;
   pointer-events: none;
+  /* Fade the mist before its clipped edge, including on taller hero layouts. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 65%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 65%, transparent);
 }
 .hero__atmosphere::before,
 .hero__atmosphere::after {
