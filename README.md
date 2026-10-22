@@ -15,7 +15,7 @@ workspace needs port forwarding or hosting to be reachable from your browser.
 - `style.css`: colors, typography, and spacing tokens in `:root`, then component styles. Tablet/phone overrides and reduced-motion rules are at the end.
 - `script.js`: deferred script with one initialization function per interaction. Handles the mobile menu, scroll background, one-time reveals, level counter, and single-open FAQ accordion.
 - `Logo V3 trans.png`: original supplied shield; used in navigation, the save-file panel, favicon, and footer.
-- `assets/`: local scenery, a lightweight stone-grain SVG, and locally stored Modrinth/GitHub brand marks. No external image service is needed.
+- `assets/`: local scenery, a lightweight stone-grain SVG, and locally stored Modrinth/GitHub/Discord brand marks. No external image service is needed.
 
 The save file is an illustrative character preview, not live player data. Without
 JavaScript, the page content, navigation links, FAQ answers, and final level remain
@@ -37,7 +37,7 @@ the mobile menu and returns focus to its toggle.
 - Captions and labels are at least 12px at the default browser size; body copy is
   generally 15–16px. Type uses rem units so browser font preferences scale it.
 
-The Modrinth and GitHub SVG marks are from
+The Modrinth, GitHub, and Discord SVG marks are from
 [Simple Icons](https://github.com/simple-icons/simple-icons/tree/develop/icons),
 with fill colors set to suit the site. The Modrinth mark matches the supplied
 brand reference.
