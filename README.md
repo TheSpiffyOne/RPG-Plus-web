@@ -40,15 +40,24 @@ release is in that one section and renders without JavaScript:
 </ul>
 ```
 
-No build, account, or public editing controls are needed. To retain older
-releases, duplicate the release article below the latest one and give its
-heading/`aria-labelledby` a unique ID.
+4. Put the patch’s backdrop image in `assets/` and update `--patch-background`
+   on the opening `<section id="patch-notes">` tag. For example:
+
+```html
+style="--patch-background: url('assets/patch-1.4.3.png')"
+```
+
+The section keeps a dark overlay for readable text over each new backdrop.
+No build, account, or public editing controls are needed. Patch Notes in both
+navbars links to this full-width scenic section.
 
 ## Edit the guide
 
 Edit the seven chapter sections in `guide.html`. Keep each section’s `id` in sync
 with the matching link in `.guide-contents`. Both the homepage title and its
-“Read the guide” button open this page, as does Guide in the navbar.
+“Read the guide” button open this page, as does Guide in the navbar. The
+homepage introduction uses an open journal layout; its three chapter rows
+link directly to installation, the first night, and dungeons.
 
 ## Links and motion
 

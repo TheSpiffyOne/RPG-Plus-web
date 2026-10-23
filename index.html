@@ -47,6 +47,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#experience">The Journey</a></li>
+          <li><a href="#patch-notes">Patch Notes</a></li>
           <li><a href="guide.html">Guide</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -229,49 +230,32 @@
       </ol>
     </section>
 
-    <section class="horizons" aria-labelledby="horizonsTitle">
-      <div class="horizons__inner container reveal">
-        <div class="horizons__copy">
-          <p class="eyebrow">Look a little further</p>
-          <h2 id="horizonsTitle">A world without<br>the short view.</h2>
-          <p>Terralith and Tectonic reshape the land. Distant Horizons brings the distance into focus, with compatible Iris shaders already in the pack.</p>
-          <span class="horizons__included"><span class="status-dot" aria-hidden="true"></span> Included &amp; configured. Just explore.</span>
-        </div>
-        <div class="horizons__readout" aria-label="Distant Horizons and compatible Iris shaders included">
-          <svg class="icon" aria-hidden="true"><use href="#icon-mountain"/></svg>
-          <span class="eyebrow">Render distance</span>
-          <span class="horizons__infinity" aria-hidden="true">∞</span>
-          <span class="horizons__label">Out to the horizon</span>
-          <span class="horizons__shader">Distant Horizons + Iris</span>
-        </div>
-      </div>
-    </section>
-
     <!-- PATCH NOTES: edit the version, heading, summary, and list together here.
-         The current version is v1.4.2. Notes are pending; do not invent release changes.
-         For a release: replace the version badge with the new number, replace the heading/summary,
-         and add <li> entries to patch-notes__list. No JavaScript or build step is needed. -->
-    <section class="patch-notes section container" id="patch-notes" aria-labelledby="patchTitle">
-      <div class="section-head reveal">
-        <p class="eyebrow">The change log</p>
-        <h2 id="patchTitle">The adventure keeps evolving.</h2>
-        <p class="patch-notes__intro">Modpack updates, improvements, and fixes, all in one place.</p>
+         Change --patch-background to a new local image for each release.
+         The current version is v1.4.2; release notes are still pending. -->
+    <section class="patch-notes" id="patch-notes" aria-labelledby="patchTitle" style="--patch-background: url('assets/ruined-valley.png')">
+      <div class="patch-notes__inner container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The change log</p>
+          <h2 id="patchTitle">The adventure<br>keeps evolving.</h2>
+          <p class="patch-notes__intro">Modpack updates, improvements, and fixes, all in one place.</p>
+          <div class="patch-notes__meta">
+            <span class="patch-notes__version">v1.4.2</span>
+            <span class="eyebrow">RPG Plus · Fabric</span>
+          </div>
+        </div>
+        <article class="patch-notes__release reveal" aria-labelledby="patchReleaseTitle">
+          <div class="patch-notes__body">
+            <h3 id="patchReleaseTitle">Patch notes coming soon</h3>
+            <p class="patch-notes__summary">Notes for this release haven’t been published yet. Check back for the full list of changes.</p>
+            <ul class="patch-notes__list"><!-- Add one <li> per patch note. --></ul>
+            <a class="text-link" href="https://modrinth.com/modpack/rpg-plus/versions" target="_blank" rel="noopener">
+              <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="20" height="20" alt="">
+              Browse releases on Modrinth <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+          </div>
+        </article>
       </div>
-      <article class="patch-notes__release reveal" aria-labelledby="patchReleaseTitle">
-        <div class="patch-notes__meta">
-          <span class="patch-notes__version">v1.4.2</span>
-          <span class="eyebrow">RPG Plus · Fabric</span>
-        </div>
-        <div class="patch-notes__body">
-          <h3 id="patchReleaseTitle">Patch notes coming soon</h3>
-          <p class="patch-notes__summary">Notes for this release haven’t been published yet. Check back for the full list of changes.</p>
-          <ul class="patch-notes__list"><!-- Add one <li> per patch note. --></ul>
-          <a class="text-link" href="https://modrinth.com/modpack/rpg-plus/versions" target="_blank" rel="noopener">
-            <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="20" height="20" alt="">
-            Browse releases on Modrinth <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
-          </a>
-        </div>
-      </article>
     </section>
 
     <section class="guide-teaser container reveal" id="guide" aria-labelledby="guideTitle">
@@ -282,9 +266,9 @@
         <a class="btn btn--ghost" href="guide.html"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg> Read the guide <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
       </div>
       <ol class="guide-teaser__chapters" aria-label="Inside the guide">
-        <li><span>01</span><div><h3>Begin your journey</h3><p>Install, configure, and step into your world.</p></div></li>
-        <li><span>02</span><div><h3>Find your footing</h3><p>Survive, gear up, and spend your skill points.</p></div></li>
-        <li><span>03</span><div><h3>Go a little further</h3><p>Prepare for dungeons and tune your settings.</p></div></li>
+        <li><a href="guide.html#installation"><span class="guide-teaser__number">01</span><div><h3>Begin your journey</h3><p>Install, configure, and step into your world.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
+        <li><a href="guide.html#first-night"><span class="guide-teaser__number">02</span><div><h3>Find your footing</h3><p>Survive, gear up, and spend your skill points.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
+        <li><a href="guide.html#dungeons"><span class="guide-teaser__number">03</span><div><h3>Go a little further</h3><p>Prepare for dungeons and tune your settings.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
       </ol>
     </section>
 
