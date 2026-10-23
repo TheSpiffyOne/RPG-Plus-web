@@ -54,10 +54,9 @@ navbars links to this full-width scenic section.
 ## Edit the guide
 
 Edit the seven chapter sections in `guide.html`. Keep each section’s `id` in sync
-with the matching link in `.guide-contents`. Both the homepage title and its
-“Read the guide” button open this page, as does Guide in the navbar. The
-homepage introduction uses an open journal layout; its three chapter rows
-link directly to installation, the first night, and dungeons.
+with the matching link in `.guide-contents`. The homepage introduction contains a plain
+heading, description, and a single “Read the guide” button. Guide in the navbar
+also opens this page. Chapter navigation lives on the guide page itself.
 
 ## Links and motion
 
@@ -67,6 +66,9 @@ link directly to installation, the first night, and dungeons.
   placeholder for lava.top. Find `donationButton` in `index.html`; when ready,
   replace that button with an `<a>` containing your URL and remove `disabled`,
   `aria-describedby`, and the adjacent “Coming soon” message.
+- The warm gold interface palette uses `--c-accent` in `style.css`, with matching
+  amber button surfaces, XP fills, particles, focus rings, links, and hover glows.
+  Brand marks and scene artwork keep their original colors.
 - Hero motion uses CSS transforms/opacity for landscape drift, mist, floating
   rune sparks, the crest, and an introductory reveal. The version dot pulses.
   “Pause motion” pauses decorative animation; it also pauses when the hero leaves
@@ -105,7 +107,7 @@ individual screenshots, give each modifier its own background image and use
 - Pause/resume hero motion and verify it pauses when scrolled out of view.
 - Verify the GitHub destination and Modrinth icons; Donate stays disabled until its URL is supplied.
 - Check reduced motion, keyboard focus, and content with JavaScript disabled.
-- Open Guide from the navbar and homepage title. Follow chapter links and return
+- Open Guide from the navbar and homepage “Read the guide” button. Follow chapter links and return
   to the homepage and patch notes. Verify `v1.4.2` and the pending-notes state.
 
 The redesign was checked in Chromium at 320, 375, 640, 768, 820, 1024, 1440, and
