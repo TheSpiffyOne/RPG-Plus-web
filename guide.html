@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101616">
+  <title>Getting Started — RPG Plus Field Guide</title>
+  <meta name="description" content="Learn how to install RPG Plus, survive your first night, develop your character, prepare for dungeons, and tune your Minecraft settings.">
+  <link rel="icon" type="image/png" href="Logo%20V3%20trans.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shared icons keep component markup small. All instances are decorative. -->
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8V4Z"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.5 5.5a5 5 0 0 0-7 0L12 7l-1.5-1.5a5 5 0 0 0-7 7L12 21l8.5-8.5a5 5 0 0 0 0-7Z"/></symbol>
+    <symbol id="icon-rune" viewBox="0 0 24 24"><path d="m12 2 2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2L12 2Z"/><path d="M12 7v10M7 12h10"/></symbol>
+    <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10L3 7m9 5 9-5m-9 5v10"/></symbol>
+    <symbol id="icon-mountain" viewBox="0 0 24 24"><path d="m2 20 8-16 5 9 3-6 5 13M7 10l3 3 3-3"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 5c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1Zm0 0v15"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20v-5h3v5m4 0V9h3v11m4 0V3h3v17M2 21h21"/></symbol>
+    <symbol id="icon-swords" viewBox="0 0 24 24"><path d="m4 3 17 17m-1-17L3 20M4 3l5 1-4 4-1-5Zm16 0-5 1 4 4 1-5ZM2 15l6 6m8 0 6-6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v7c0 5-6 8-9 9-3-1-9-4-9-9V6l9-4Zm-4 10 3 3 5-6"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 3C6 1 1 9 6 16c7 7 15 1 14-13ZM4 21 16 8m-8 9v-7m1 6h7"/></symbol>
+    <symbol id="icon-map" viewBox="0 0 24 24"><path d="m2 5 7-3 6 3 7-3v17l-7 3-6-3-7 3V5Zm7-3v17m6-14v17"/></symbol>
+    <symbol id="icon-fire" viewBox="0 0 24 24"><path d="M13 2c2 7-5 7-2 12 2 0 4-3 4-5 7 7 5 13-3 13S1 14 7 8c-1 5 1 6 2 6-2-6 4-7 4-12Z"/></symbol>
+    <symbol id="icon-pickaxe" viewBox="0 0 24 24"><path d="m4 21 12-13M7 3c7-2 12 2 14 9l-5-4-4-4-5-1Zm5 1-3 3m7 1 3-3"/></symbol>
+  </svg>
+
+  <!-- Primary navigation -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner container">
+      <a href="index.html#home" class="nav__brand" aria-label="RPG Plus home">
+        <img class="nav__emblem" src="Logo%20V3%20trans.png" width="44" height="51" alt="">
+        <span class="nav__title">RPG Plus</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#experience">The Journey</a></li>
+          <li><a href="guide.html" aria-current="page">Guide</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--ghost btn--icon nav__discord" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener" aria-label="Join RPG Plus on Discord" title="Join RPG Plus on Discord">
+        <img class="brand-icon brand-icon--discord" src="assets/discord.svg" width="22" height="22" alt="">
+      </a>
+      <a class="btn btn--stone nav__cta" aria-label="Download RPG Plus from Modrinth" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener">
+        <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> <span class="nav__download-label">Download</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="guide-hero container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Field guide</span></nav>
+      <p class="eyebrow">RPG Plus · The adventurer’s handbook</p>
+      <h1>The adventurer’s<br>field guide.</h1>
+      <p class="guide-hero__desc">A new world can be a lot to take in. Here’s how to get started, survive the early game, and make the adventure yours.</p>
+      <p class="guide-hero__edition"><img class="minecraft-mark" src="assets/minecraft.png" width="24" height="26" alt=""> Minecraft 1.20.1 <span aria-hidden="true">/</span> Fabric</p>
+    </header>
+
+    <div class="guide-layout container">
+      <nav class="guide-contents" aria-label="Guide chapters">
+        <p class="eyebrow">In this guide</p>
+        <ol>
+          <li><a href="#installation"><span>01</span> Install the pack</a></li>
+          <li><a href="#preparation"><span>02</span> Prepare your instance</a></li>
+          <li><a href="#first-night"><span>03</span> Your first night</a></li>
+          <li><a href="#progression"><span>04</span> Build your character</a></li>
+          <li><a href="#dungeons"><span>05</span> Brave the dungeons</a></li>
+          <li><a href="#performance"><span>06</span> Shaders &amp; performance</a></li>
+          <li><a href="#updating"><span>07</span> Update safely</a></li>
+        </ol>
+        <a class="text-link" href="index.html#patch-notes">Read the patch notes <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+      </nav>
+
+      <article class="guide-article" aria-label="Getting started with RPG Plus">
+        <section class="guide-chapter" id="installation" aria-labelledby="installationTitle">
+          <p class="eyebrow">Chapter 01 · Your first save</p>
+          <h2 id="installationTitle">Install the pack.</h2>
+          <p>The Modrinth Launcher is the simplest way to install RPG Plus with its included mods and configuration.</p>
+          <ol class="guide-steps">
+            <li>Install the <a href="https://modrinth.com/app" target="_blank" rel="noopener">Modrinth Launcher</a> and sign in with the Microsoft account you use for Minecraft: Java Edition.</li>
+            <li>Search for <strong>RPG Plus</strong> in the launcher, or open the <a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="18" height="18" alt=""> RPG Plus Modrinth page</a> and install it from there.</li>
+            <li>Choose the pack version you want to play and let the launcher finish downloading its files.</li>
+            <li>Launch the RPG Plus instance. Use the pack’s included Minecraft and Fabric versions so its mods stay together.</li>
+          </ol>
+          <aside class="guide-note"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg><p><strong>New to modpacks?</strong> You don’t need to download the included mods one by one. The launcher handles the pack as a complete instance.</p></aside>
+        </section>
+
+        <section class="guide-chapter" id="preparation" aria-labelledby="preparationTitle">
+          <p class="eyebrow">Chapter 02 · Before you set out</p>
+          <h2 id="preparationTitle">Prepare your instance.</h2>
+          <ul class="guide-list">
+            <li><strong>Check your memory allocation.</strong> The launcher’s default Java memory limit may be low for a large modpack. Adjust it to suit your available RAM, leaving enough for your operating system and other apps.</li>
+            <li><strong>Give the first load time.</strong> Loading the mods and generating terrain with Distant Horizons can take longer than vanilla Minecraft.</li>
+            <li><strong>Look through Controls.</strong> Open Minecraft’s Controls settings to find the pack’s skill, map, and quest bindings and resolve any conflicts. Use the bindings shown in your installed version.</li>
+          </ul>
+          <p>Optional quests can provide direction, but you can also ignore the quest log and explore at your own pace.</p>
+        </section>
+
+        <section class="guide-chapter" id="first-night" aria-labelledby="firstNightTitle">
+          <p class="eyebrow">Chapter 03 · Find your footing</p>
+          <h2 id="firstNightTitle">Survive your first night.</h2>
+          <p>The early game is meant to challenge you. Start with the basics before taking on everything you discover.</p>
+          <ol class="guide-steps">
+            <li>Gather wood, make your first tools, and secure a reliable supply of food.</li>
+            <li>Set up shelter and light it before pushing into unfamiliar terrain.</li>
+            <li>Look for equipment upgrades and take manageable fights rather than rushing straight into a dungeon.</li>
+            <li>Keep track of safe routes and useful places with the pack’s map system.</li>
+          </ol>
+          <p>There’s no prize for fighting unprepared. Returning with better gear and a few more levels is part of the journey.</p>
+        </section>
+
+        <section class="guide-chapter" id="progression" aria-labelledby="progressionTitle">
+          <p class="eyebrow">Chapter 04 · A build of your own</p>
+          <h2 id="progressionTitle">Grow your character.</h2>
+          <p>RPG Plus adds character levels and skill points. As you progress, spend earned points on skills that fit how you want to play.</p>
+          <ul class="guide-list">
+            <li>Find the character or skill menu using the bindings in Controls.</li>
+            <li>Read each skill’s description before spending points, and choose upgrades that complement your equipment and playstyle.</li>
+            <li>Keep looking for new armor and items. Levels and gear work together to open up tougher adventures.</li>
+          </ul>
+          <aside class="guide-note"><svg class="icon" aria-hidden="true"><use href="#icon-rune"/></svg><p><strong>Make it your own.</strong> Build around the way you enjoy playing. You don’t have to follow the optional quest log to find your direction.</p></aside>
+        </section>
+
+        <section class="guide-chapter" id="dungeons" aria-labelledby="dungeonsTitle">
+          <p class="eyebrow">Chapter 05 · Earn your victories</p>
+          <h2 id="dungeonsTitle">Brave the dungeons.</h2>
+          <p>New dungeons and bosses are a chance to put your build to the test. Prepare for an expedition rather than treating every structure like a quick stop.</p>
+          <ul class="guide-list">
+            <li>Bring food, spare supplies, light sources, and equipment you can rely on.</li>
+            <li>Check your armor and weapons before leaving your base.</li>
+            <li>Keep a route back to safety, and learn from fights that are too difficult for your current build.</li>
+          </ul>
+          <p>Explore at your own pace. A difficult boss will still be there after your next upgrade.</p>
+        </section>
+
+        <section class="guide-chapter" id="performance" aria-labelledby="performanceTitle">
+          <p class="eyebrow">Chapter 06 · Look a little further</p>
+          <h2 id="performanceTitle">Tune the view to your machine.</h2>
+          <p>Distant Horizons and compatible Iris shaders come with the pack. They make a large world feel larger, but the right settings depend on your hardware.</p>
+          <ul class="guide-list">
+            <li>If performance is low, check Java memory allocation first and close unnecessary background apps.</li>
+            <li>Lower shader quality and Distant Horizons settings if you need a smoother experience.</li>
+            <li>Allow extra time for terrain generation when exploring a new area.</li>
+            <li>If you install another shader, choose one compatible with Distant Horizons.</li>
+          </ul>
+          <p>Change settings a little at a time so you can tell what helps.</p>
+        </section>
+
+        <section class="guide-chapter" id="updating" aria-labelledby="updatingTitle">
+          <p class="eyebrow">Chapter 07 · Keep your story safe</p>
+          <h2 id="updatingTitle">Update with a backup.</h2>
+          <ol class="guide-steps">
+            <li>Close Minecraft before updating the pack.</li>
+            <li>Back up your saves and any settings you want to keep.</li>
+            <li>Read the <a href="index.html#patch-notes">patch notes</a> for changes and any version-specific instructions.</li>
+            <li>Update the instance through Modrinth, then check that everything loads correctly before continuing your main world.</li>
+          </ol>
+          <aside class="guide-note"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg><p><strong>Keep the backup.</strong> Retain an untouched copy of your world until you’re happy with the updated pack. If a release has special migration steps, follow those first.</p></aside>
+        </section>
+
+        <div class="guide-help">
+          <p class="eyebrow">You don’t have to go alone</p>
+          <h2>Need a hand?</h2>
+          <p>Join the RPG Plus Discord and post in <strong>#help-required</strong>. Include your pack version and what happened so the community has somewhere to start.</p>
+          <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><img class="brand-icon brand-icon--discord" src="assets/discord.svg" width="22" height="22" alt=""> Ask the community</a>
+          <a class="text-link" href="index.html">Back to RPG Plus <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <a class="nav__brand" href="index.html#home" aria-label="RPG Plus home"><img class="nav__emblem" src="Logo%20V3%20trans.png" width="44" height="51" alt="" loading="lazy"><span class="nav__title">RPG Plus</span></a>
+      <p class="footer__tag">The reimagined Minecraft experience.</p>
+      <ul class="footer__links">
+        <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> Modrinth ↗</a></li>
+        <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><img class="brand-icon brand-icon--discord" src="assets/discord.svg" width="22" height="22" alt=""> Discord ↗</a></li>
+        <li><a href="guide.html">Guide</a></li>
+        <li><a href="index.html#patch-notes">Patch notes</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom container"><p>A fan-made adventure. Not affiliated with Mojang or Microsoft.</p><a href="#main">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>

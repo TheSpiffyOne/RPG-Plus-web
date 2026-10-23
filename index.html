@@ -47,6 +47,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#experience">The Journey</a></li>
+          <li><a href="guide.html">Guide</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -78,7 +79,7 @@
       </div>
       <div class="hero__inner container">
         <div class="hero__copy">
-          <p class="hero__edition"><span class="status-dot" aria-hidden="true"></span> Minecraft 1.20.1 <span class="hero__edition-divider">/</span> Fabric</p>
+          <p class="hero__edition"><span class="status-dot" aria-hidden="true"></span> <img class="minecraft-mark" src="assets/minecraft.png" width="24" height="26" alt=""> Minecraft 1.20.1 <span class="hero__edition-divider">/</span> Fabric</p>
           <p class="eyebrow hero__eyebrow">The reimagined Minecraft experience</p>
           <h1 id="heroTitle">Your next<br>minecraft journey<br>starts here<span class="hero__period">.</span></h1>
           <div class="rune-divider" aria-hidden="true"><span></span><svg class="icon"><use href="#icon-rune"/></svg><span></span></div>
@@ -131,8 +132,7 @@
                   <div><dt>Skill points</dt><dd>12 <span class="save-file__unspent">unspent</span></dd></div>
                 </div>
               </dl>
-              <p class="save-file__status"><span class="status-dot" aria-hidden="true"></span> Ready to explore</p>
-              <p class="save-file__caption">Character preview</p>
+              <p class="save-file__status">Ready to explore</p>
             </div>
           </div>
         </aside>
@@ -247,6 +247,47 @@
       </div>
     </section>
 
+    <!-- PATCH NOTES: edit the version, heading, summary, and list together here.
+         The current version is v1.4.2. Notes are pending; do not invent release changes.
+         For a release: replace the version badge with the new number, replace the heading/summary,
+         and add <li> entries to patch-notes__list. No JavaScript or build step is needed. -->
+    <section class="patch-notes section container" id="patch-notes" aria-labelledby="patchTitle">
+      <div class="section-head reveal">
+        <p class="eyebrow">The change log</p>
+        <h2 id="patchTitle">The adventure keeps evolving.</h2>
+        <p class="patch-notes__intro">Modpack updates, improvements, and fixes, all in one place.</p>
+      </div>
+      <article class="patch-notes__release reveal" aria-labelledby="patchReleaseTitle">
+        <div class="patch-notes__meta">
+          <span class="patch-notes__version">v1.4.2</span>
+          <span class="eyebrow">RPG Plus · Fabric</span>
+        </div>
+        <div class="patch-notes__body">
+          <h3 id="patchReleaseTitle">Patch notes coming soon</h3>
+          <p class="patch-notes__summary">Notes for this release haven’t been published yet. Check back for the full list of changes.</p>
+          <ul class="patch-notes__list"><!-- Add one <li> per patch note. --></ul>
+          <a class="text-link" href="https://modrinth.com/modpack/rpg-plus/versions" target="_blank" rel="noopener">
+            <img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="20" height="20" alt="">
+            Browse releases on Modrinth <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="guide-teaser container reveal" id="guide" aria-labelledby="guideTitle">
+      <div class="guide-teaser__copy">
+        <p class="eyebrow">A little wisdom for the road</p>
+        <h2 id="guideTitle"><a href="guide.html">The adventurer’s field guide <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></h2>
+        <p>From installing the pack to surviving your first night. Find your footing, build your character, and make the world your own.</p>
+        <a class="btn btn--ghost" href="guide.html"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg> Read the guide <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+      </div>
+      <ol class="guide-teaser__chapters" aria-label="Inside the guide">
+        <li><span>01</span><div><h3>Begin your journey</h3><p>Install, configure, and step into your world.</p></div></li>
+        <li><span>02</span><div><h3>Find your footing</h3><p>Survive, gear up, and spend your skill points.</p></div></li>
+        <li><span>03</span><div><h3>Go a little further</h3><p>Prepare for dungeons and tune your settings.</p></div></li>
+      </ol>
+    </section>
+
     <section class="faq section container" id="faq" aria-labelledby="faqTitle">
       <div class="faq__intro reveal">
         <p class="eyebrow">Before you set out</p>
@@ -289,7 +330,6 @@
       <p>Grab the pack, gather your party, and see what’s out there.</p>
       <div class="discord-cta__actions">
         <a class="btn btn--primary" href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> Download RPG Plus <svg class="icon btn__arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-        <a class="btn btn--ghost" href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><img class="brand-icon brand-icon--discord" src="assets/discord.svg" width="22" height="22" alt=""> Join Discord</a>
       </div>
       <p class="discord-cta__follow">Follow RPG Plus on Modrinth for the next update.</p>
       <div class="support">
@@ -312,6 +352,8 @@
       <ul class="footer__links">
         <li><a href="https://modrinth.com/modpack/rpg-plus" target="_blank" rel="noopener"><img class="brand-icon brand-icon--modrinth" src="assets/modrinth.svg" width="22" height="22" alt=""> Modrinth ↗</a></li>
         <li><a href="https://discord.gg/dh7jVus9ZX" target="_blank" rel="noopener"><img class="brand-icon brand-icon--discord" src="assets/discord.svg" width="22" height="22" alt=""> Discord ↗</a></li>
+        <li><a href="guide.html">Guide</a></li>
+        <li><a href="#patch-notes">Patch notes</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>

@@ -11,7 +11,8 @@ workspace needs port forwarding or hosting to be reachable from your browser.
 
 ## Where to make changes
 
-- `index.html`: page content, navigation, shared SVG icons, save-file preview, feature chapters, progression path, and FAQ.
+- `index.html`: homepage content, shared SVG icons, save-file panel, feature chapters, progression path, patch notes, guide introduction, and FAQ.
+- `guide.html`: standalone getting-started guide with chapter links. Its navbar/footer use explicit links back to `index.html` sections.
 - `style.css`: colors, typography, and spacing tokens in `:root`, then component styles. Tablet/phone overrides and reduced-motion rules are at the end.
 - `script.js`: deferred script with one initialization function per interaction. Handles the mobile menu, scroll background, one-time reveals, level counter, and single-open FAQ accordion.
 - `Logo V3 trans.png`: original supplied shield; used in navigation, the save-file panel, favicon, and footer.
@@ -21,6 +22,33 @@ The save file is an illustrative character preview, not live player data. Withou
 JavaScript, the page content, navigation links, FAQ answers, and final level remain
 available. Reveals and the level counter respect reduced motion. Escape closes
 the mobile menu and returns focus to its toggle.
+
+## Update the modpack patch notes
+
+Find the `PATCH NOTES` comment or `id="patch-notes"` in `index.html`. The entire
+release is in that one section and renders without JavaScript:
+
+1. Change the text inside `.patch-notes__version` (currently `v1.4.2`).
+2. Replace the `patchReleaseTitle` heading and `.patch-notes__summary` paragraph
+   when you have release notes. They currently show a “coming soon” state.
+3. Add one `<li>` per change inside `.patch-notes__list`. For example:
+
+```html
+<ul class="patch-notes__list">
+  <li>Your first actual patch note.</li>
+  <li>Your next actual patch note.</li>
+</ul>
+```
+
+No build, account, or public editing controls are needed. To retain older
+releases, duplicate the release article below the latest one and give its
+heading/`aria-labelledby` a unique ID.
+
+## Edit the guide
+
+Edit the seven chapter sections in `guide.html`. Keep each section’s `id` in sync
+with the matching link in `.guide-contents`. Both the homepage title and its
+“Read the guide” button open this page, as does Guide in the navbar.
 
 ## Links and motion
 
@@ -44,6 +72,12 @@ brand reference.
 
 ## Artwork
 
+`assets/minecraft.png` is the grass-block mark used beside the Minecraft version.
+It is stored locally, sourced from
+[Dashboard Icons](https://github.com/homarr-labs/dashboard-icons/blob/main/png/minecraft.png)
+to match the supplied grass-block reference.
+
+
 `assets/ruined-valley.png` and `assets/adventure-scenes.png` are generated concept
 art placeholders, not screenshots of the modpack. Replace them with your own
 in-game screenshots when available. The feature image is a three-panel atlas:
@@ -62,6 +96,8 @@ individual screenshots, give each modifier its own background image and use
 - Pause/resume hero motion and verify it pauses when scrolled out of view.
 - Verify the GitHub destination and Modrinth icons; Donate stays disabled until its URL is supplied.
 - Check reduced motion, keyboard focus, and content with JavaScript disabled.
+- Open Guide from the navbar and homepage title. Follow chapter links and return
+  to the homepage and patch notes. Verify `v1.4.2` and the pending-notes state.
 
 The redesign was checked in Chromium at 320, 375, 640, 768, 820, 1024, 1440, and
 1920 pixels wide, including the interactions and fallback states above.
