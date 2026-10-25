@@ -824,20 +824,33 @@ button:focus-visible {
 .faq {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 100px;
-  padding-block: 110px;
+  gap: 36px 100px;
+  padding-block: 100px;
 }
-.faq__intro .eyebrow {
-  margin-bottom: 17px;
+.faq__heading {
+  grid-column: 1 / -1;
+  max-width: 760px;
 }
-.faq__intro > p:not(.eyebrow) {
-  margin-top: 24px;
+.faq__heading .eyebrow { margin-bottom: 16px; }
+.faq__intro {
+  align-self: start;
+  padding-left: 24px;
+  border-left: 2px solid #e7c17b5c;
+}
+.faq__intro h3 { font-size: 26px; line-height: 1.4; }
+.faq__intro > p {
+  margin-top: 18px;
   color: var(--c-muted);
-  font-size: 0.9375rem;
-  line-height: 2;
+  font-size: 1rem;
+  line-height: 1.9;
 }
-.faq__intro .text-link {
-  margin-top: 25px;
+.faq__guide-button { margin-top: 24px; }
+.faq__intro > .faq__community { margin-top: 28px; font-size: 0.875rem; }
+.faq__intro .text-link { margin-top: 8px; }
+.faq-list__title {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--c-line);
+  font-size: 23px;
 }
 .faq-item {
   border-bottom: 1px solid var(--c-line);
@@ -1313,10 +1326,15 @@ button:focus-visible {
   line-height: 1.9;
   margin-top: 18px;
 }
+.patch-notes__group {
+  margin: 25px 0 0;
+  color: var(--c-accent);
+  font: 600 1rem/1.5 var(--f-body);
+}
 .patch-notes__list {
   padding-left: 20px;
   list-style: disc;
-  margin-top: 20px;
+  margin-top: 12px;
   color: #e2e8dd;
   font-size: 1rem;
 }
@@ -1329,31 +1347,6 @@ button:focus-visible {
   font-size: 0.875rem;
 }
 
-/* A simple guide introduction; the button is its only link. */
-.guide-teaser {
-  padding-block: 100px;
-}
-.guide-teaser__copy {
-  max-width: 760px;
-  margin-inline: auto;
-  padding-left: 28px;
-  border-left: 2px solid #e7c17b5c;
-}
-.guide-teaser__copy .eyebrow {
-  margin-bottom: 17px;
-  color: #d4c4a2;
-}
-.guide-teaser h2 {
-  font-size: clamp(27px, 2.8vw, 38px);
-  line-height: 1.4;
-  letter-spacing: -0.025em;
-}
-.guide-teaser__copy > p:not(.eyebrow) {
-  color: #c2cccb;
-  font-size: 1rem;
-  line-height: 1.9;
-  margin-block: 18px 27px;
-}
 /* Standalone guide: a quiet reading layout with persistent chapter links. */
 .nav__links a[aria-current="page"] {
   color: var(--c-accent);
@@ -1549,7 +1542,6 @@ button:focus-visible {
 }
 
 @media (max-width: 1100px) {
-  .guide-teaser { padding-block: 80px; }
   .guide-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 40px; }
 }
 @media (max-width: 820px) {
@@ -1562,9 +1554,6 @@ button:focus-visible {
   .patch-notes__release { border-left: 0; border-top: 1px solid #bdcebd4d; padding: 27px 0 0; }
   .patch-notes__body h3 { font-size: 24px; }
   .patch-notes__body .text-link { font-size: 0.8125rem; }
-  .guide-teaser { padding-block: 65px; }
-  .guide-teaser__copy { padding-left: 20px; }
-  .guide-teaser h2 { font-size: 28px; }
   .guide-hero { padding-top: calc(var(--nav-height) + 30px); padding-bottom: 38px; }
   .breadcrumbs { margin-bottom: 30px; }
   .guide-hero h1 { font-size: clamp(32px, 10vw, 48px); }
@@ -1599,7 +1588,7 @@ button:focus-visible {
   .chapter-card h3 { font-size: 18px; }
   .field-notes { flex-direction: column; align-items: flex-start; gap: 16px; }
   .field-notes ul { width: 100%; justify-content: space-between; gap: 18px; }
-  .faq { gap: 60px; }
+  .faq { gap: 36px 60px; }
   .footer__tag { max-width: 150px; }
 }
 @media (max-width: 1024px) {
@@ -1653,7 +1642,7 @@ button:focus-visible {
   .experience { padding-top: 0; }
   .journey__step { padding-inline: 12px; }
   .journey h3 { font-size: 18px; }
-  .faq { gap: 38px; grid-template-columns: 0.7fr 1.3fr; }
+  .faq { gap: 32px 38px; grid-template-columns: 0.7fr 1.3fr; }
   .faq h2 { font-size: 31px; }
   .footer__inner { flex-wrap: wrap; gap: 18px; }
   .footer__tag { display: none; }

@@ -30,7 +30,7 @@ release is in that one section and renders without JavaScript:
 
 1. Change the text inside `.patch-notes__version` (currently `v1.4.2`).
 2. Replace the `patchReleaseTitle` heading and `.patch-notes__summary` paragraph
-   when you have release notes. They currently show a “coming soon” state.
+   for the next release. The current grouped notes describe v1.4.2.
 3. Add one `<li>` per change inside `.patch-notes__list`. For example:
 
 ```html
@@ -54,8 +54,8 @@ navbars links to this full-width scenic section.
 ## Edit the guide
 
 Edit the seven chapter sections in `guide.html`. Keep each section’s `id` in sync
-with the matching link in `.guide-contents`. The homepage introduction contains a plain
-heading, description, and a single “Read the guide” button. Guide in the navbar
+with the matching link in `.guide-contents`. The homepage combines the guide introduction and FAQ in one getting-started
+section, with a plain guide heading and a single “Read the guide” button. Guide in the navbar
 also opens this page. Chapter navigation lives on the guide page itself.
 
 ## Links and motion
@@ -108,7 +108,7 @@ individual screenshots, give each modifier its own background image and use
 - Verify the GitHub destination and Modrinth icons; Donate stays disabled until its URL is supplied.
 - Check reduced motion, keyboard focus, and content with JavaScript disabled.
 - Open Guide from the navbar and homepage “Read the guide” button. Follow chapter links and return
-  to the homepage and patch notes. Verify `v1.4.2` and the pending-notes state.
+  to the homepage and patch notes. Verify `v1.4.2` and the published release notes.
 
 The redesign was checked in Chromium at 320, 375, 640, 768, 820, 1024, 1440, and
 1920 pixels wide, including the interactions and fallback states above.
