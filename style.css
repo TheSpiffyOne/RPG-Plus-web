@@ -846,7 +846,11 @@ button:focus-visible {
 }
 .faq__guide-button { margin-top: 24px; }
 .faq__intro > .faq__community { margin-top: 28px; font-size: 0.875rem; }
-.faq__intro .text-link { margin-top: 8px; }
+.faq__intro .text-link {
+  display: flex;
+  width: fit-content;
+  margin-top: 22px;
+}
 .faq-list__title {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--c-line);
@@ -1610,7 +1614,6 @@ button:focus-visible {
 .nav__toggle span { height: 2px; }
 .faq-item__icon::before,
 .faq-item__icon::after { height: 2px; }
-.faq__intro .text-link { margin-top: 22px; }
 
 /* Screenshot slots accept a normal image in place of the placeholder div. */
 .guide-media {
