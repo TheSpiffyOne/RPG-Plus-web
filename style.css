@@ -1595,7 +1595,7 @@ button:focus-visible {
 .external-arrow,
 .top-arrow,
 .down-arrow { width: 14px; height: 14px; }
-.external-arrow { transform: rotate(-90deg); }
+.external-arrow { transform: rotate(-45deg); }
 .top-arrow { display: inline-block; transform: rotate(-90deg); vertical-align: middle; }
 .down-arrow { transform: rotate(90deg); }
 .hero__desc { max-width: 480px; }
@@ -1830,4 +1830,19 @@ button:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Link arrows retain the original smooth line design. */
+.icon:has(use[href="#icon-arrow"]) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  shape-rendering: auto;
+}
+.discord-cta > p:not(.eyebrow) {
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.9;
 }

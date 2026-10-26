@@ -75,8 +75,8 @@ also opens this page. Chapter navigation lives on the guide page itself.
 
 ## Pixel icons and version font
 
-Both HTML pages include the same 16×16 SVG symbol set. Each glyph uses square
-pixels and inherits its color from CSS. Discord, GitHub, and Modrinth use their original vector logos and brand colors. Update both symbol blocks when changing an icon.
+Both HTML pages include the same 16×16 SVG symbol set. Interface glyphs use square pixels and inherit their color from CSS; link
+arrows use the original smooth stroke design. Discord, GitHub, and Modrinth use their original vector logos and brand colors. Update both symbol blocks when changing an icon.
 
 Minecraft version labels use the locally hosted **Monocraft** font, a Minecraft-
 inspired font by IdreesInc. Its OFL license is in `assets/fonts/Monocraft-LICENSE.txt`.
