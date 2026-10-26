@@ -776,7 +776,7 @@ button:focus-visible {
   padding-inline: 21px;
 }
 .journey__step:not(:last-child)::after {
-  content: '›';
+  content: '>';
   position: absolute;
   right: -4px;
   top: 19px;
@@ -1568,6 +1568,78 @@ button:focus-visible {
   .footer__links { flex-wrap: wrap; gap: 16px 24px; }
 }
 
+/* Monocraft: Minecraft-inspired pixel lettering, distributed under the OFL. */
+@font-face {
+  font-family: 'Monocraft';
+  src: url('assets/fonts/Monocraft.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.icon {
+  fill: currentColor;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+.brand-icon--modrinth { color: #39d467; }
+.brand-icon--discord { color: #7380ff; }
+.brand-icon--github { color: #e4e9e3; }
+.hero__edition,
+.guide-hero__edition {
+  flex-wrap: wrap;
+  font-family: 'Monocraft', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+.external-arrow,
+.top-arrow,
+.down-arrow { width: 14px; height: 14px; }
+.external-arrow { transform: rotate(-90deg); }
+.top-arrow { display: inline-block; transform: rotate(-90deg); vertical-align: middle; }
+.down-arrow { transform: rotate(90deg); }
+.hero__desc { max-width: 480px; }
+.btn--support {
+  color: var(--c-accent);
+  border-color: #d3af6c88;
+  background: #3a2c1b99;
+}
+.btn--support .icon { color: var(--c-accent); }
+.btn--support:not(:disabled):hover { border-color: var(--c-accent); background: #5a4528; }
+.journey__step:not(:last-child)::after { font-family: 'Monocraft', monospace; }
+.nav__toggle span { height: 2px; }
+.faq-item__icon::before,
+.faq-item__icon::after { height: 2px; }
+.faq__intro .text-link { margin-top: 22px; }
+
+/* Screenshot slots accept a normal image in place of the placeholder div. */
+.guide-media {
+  margin: 30px 0 0;
+}
+.guide-media > img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #c7a46366;
+}
+.guide-media__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+  aspect-ratio: 16 / 9;
+  border: 2px dashed #b89a6359;
+  background: var(--stone-texture), #1b211e;
+  color: #cbb98e;
+  font-size: 0.875rem;
+}
+.guide-media__placeholder .icon { width: 48px; height: 48px; }
+.guide-media figcaption {
+  color: #b8bea9;
+  font-size: 0.8125rem;
+  margin-top: 12px;
+}
+
 /* Smaller desktop and tablet */
 @media (min-width: 1600px) {
   .hero__inner { padding-top: 235px; padding-bottom: 115px; }
@@ -1597,7 +1669,7 @@ button:focus-visible {
   .nav__title { font-size: 22px; }
   .nav__emblem { width: 37px; height: 43px; }
   .nav__discord { margin-left: auto; }
-  .nav__cta { margin-left: 0; }
+  .nav__cta { margin-left: auto; }
   .nav__inner { gap: 16px; }
   .nav__links {
     position: absolute;

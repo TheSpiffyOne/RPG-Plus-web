@@ -62,10 +62,7 @@ also opens this page. Chapter navigation lives on the guide page itself.
 
 - GitHub in the hero links to <https://github.com/TheSpiffyOne/RPG-Plus>.
 - Every Modrinth download link includes the green Modrinth mark.
-- The Donate button, below the closing invitation, is an intentional disabled
-  placeholder for lava.top. Find `donationButton` in `index.html`; when ready,
-  replace that button with an `<a>` containing your URL and remove `disabled`,
-  `aria-describedby`, and the adjacent “Coming soon” message.
+- Donate in the hero and closing section links to <https://app.lava.top/spiffy?tabId=donate>.
 - The warm gold interface palette uses `--c-accent` in `style.css`, with matching
   amber button surfaces, XP fills, particles, focus rings, links, and hover glows.
   Brand marks and scene artwork keep their original colors.
@@ -76,10 +73,21 @@ also opens this page. Chapter navigation lives on the guide page itself.
 - Captions and labels are at least 12px at the default browser size; body copy is
   generally 15–16px. Type uses rem units so browser font preferences scale it.
 
-The Modrinth, GitHub, and Discord SVG marks are from
-[Simple Icons](https://github.com/simple-icons/simple-icons/tree/develop/icons),
-with fill colors set to suit the site. The Modrinth mark matches the supplied
-brand reference.
+## Pixel icons and version font
+
+Both HTML pages include the same 16×16 SVG symbol set. Each glyph uses square
+pixels and inherits its color from CSS. Discord, GitHub, and Modrinth use their original vector logos and brand colors. Update both symbol blocks when changing an icon.
+
+Minecraft version labels use the locally hosted **Monocraft** font, a Minecraft-
+inspired font by IdreesInc. Its OFL license is in `assets/fonts/Monocraft-LICENSE.txt`.
+Source: <https://github.com/IdreesInc/Monocraft>.
+
+## Add guide images
+
+Find `IMAGE SLOT` comments in `guide.html`. Replace a placeholder div with a normal
+`<img>` pointing to your screenshot; keep its surrounding figure and caption.
+See `assets/guide/README.md` for an example. There are slots for installation,
+controls, skills, and video settings, with no missing image requests until supplied.
 
 ## Artwork
 
@@ -105,7 +113,7 @@ individual screenshots, give each modifier its own background image and use
 - Verify the scroll background, reveal animations, and level counter ending at 47.
 - Open an FAQ answer, open another, and close it. Resize with an answer open.
 - Pause/resume hero motion and verify it pauses when scrolled out of view.
-- Verify the GitHub destination and Modrinth icons; Donate stays disabled until its URL is supplied.
+- Verify the GitHub destination, pixel glyphs, and both working lava.top donation links.
 - Check reduced motion, keyboard focus, and content with JavaScript disabled.
 - Open Guide from the navbar and homepage “Read the guide” button. Follow chapter links and return
   to the homepage and patch notes. Verify `v1.4.2` and the published release notes.
